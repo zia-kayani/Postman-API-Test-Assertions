@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "name": "zia",
+        "location": "pakistan",
+        "phone": "1234567",
+        "courses": [
+            "c#",
+            "c++"
+        ]
+    },
+    {
+        "id": 2,
+        "name": "kim",
+        "location": "japan",
+        "phone": "1267",
+        "courses": [
+            "apiem",
+            "automatin"
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Naila",
+        "location": "salkheter",
+        "phone": "3333",
+        "courses": [
+            "Bio",
+            "Science"
+        ]
+    }
+]

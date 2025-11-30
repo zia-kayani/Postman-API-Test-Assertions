@@ -1,0 +1,118 @@
+//---------------- response status code ----------------
+// to check the status code
+pm.test("check status code is 200", ()=>{
+    pm.response.to.have.status(200);
+});
+
+// to check the status code in set
+pm.test("success status codes check", ()=>{
+    pm.expect(pm.response.code).to.be.oneOf([200,201]);
+})
+
+// to check status 
+pm.test("check status", ()=>{
+    pm.response.to.have.status("OK");
+})
+
+
+//---------------- Headers validatoin----------------
+// check header is present
+pm.test("check header is present", ()=>{
+    pm.response.to.have.header("Content-Type")
+})
+
+//check values of the header
+pm.test("check value of content-type header", ()=>{
+    pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');
+});
+
+//---------------- cookies validatoin----------------
+
+
+//to check cookies is present
+// pm.test("cookies 'language' is present", ()=>{
+//     pm.expect(pm.cookies.has('language')).to.be.false;
+// })
+
+// pm.test("cookie language has value 1", ()=>{
+//     pm.expect(pm.cookies.get('language')).eql('en-gb')
+// })
+
+//---------------- Response Time validatoin----------------
+pm.test('Response time below 30ms', ()=>{
+    pm.expect(pm.response.responseTime).to.be.below(30)
+})
+
+//---------------- Data validatoin----------------
+//check the data types of the response payload json data
+const responseData =  pm.response.json();
+pm.test('Test data types of response', ()=>{
+    pm.expect(responseData).to.be.an('object');
+    pm.expect(responseData.id).to.be.a('number');
+    pm.expect(responseData.name).to.be.a('string');
+    pm.expect(responseData.location).to.be.a('string');
+    pm.expect(responseData.courses).to.be.an('array');
+})
+
+
+//---------------- Array validatoin----------------
+//to check array has specific values
+pm.test('Array has specific values', ()=>{
+    pm.expect(responseData.courses).to.include('apiem');
+    pm.expect(responseData.courses).to.have.members(['apiem', 'automatin'])
+})
+
+//---------------- JSON Field validatoin----------------
+pm.test('fields check for response payload', ()=>{
+    pm.expect(responseData.id).to.be.eql(2);
+    pm.expect(responseData.name).to.be.eql('kim');
+    pm.expect(responseData.location).to.be.eql('japan');
+    pm.expect(responseData.phone).to.be.eql('1267');
+    pm.expect(responseData.courses[0]).to.be.eql('apiem')
+    pm.expect(responseData.courses[1]).to.be.eql('automatin')
+})
+
+
+//---------------- JSON Schema validatoin----------------
+
+var schema = {
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "name": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "courses": {
+      "type": "array",
+      "items": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "string"
+        }
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "location",
+    "phone",
+    "courses"
+  ]
+}
+
+pm.test('schema is valid or not', ()=>{
+    pm.expect(tv4.validate(responseData, schema)).to.be.true;
+})
+
