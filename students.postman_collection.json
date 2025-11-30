@@ -1,0 +1,34 @@
+{
+	"info": {
+		"_postman_id": "8762b4e6-b539-48ee-8e83-2a99ac2cbb41",
+		"name": "students",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22695958"
+	},
+	"item": [
+		{
+			"name": "Post student record in students",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"name\": \"Ali\",\r\n        \"location\": \"umerkot\",\r\n        \"phone\": \"112233\",\r\n        \"courses\": [\r\n            \"TestAutomation\",\r\n            \"Java\"\r\n        ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000",
+					"host": [
+						"localhost"
+					],
+					"port": "3000"
+				}
+			},
+			"response": []
+		}
+	]
+}
