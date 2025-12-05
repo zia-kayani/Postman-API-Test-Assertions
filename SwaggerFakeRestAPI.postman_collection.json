@@ -1,0 +1,128 @@
+{
+	"info": {
+		"_postman_id": "6e9d4f49-cc96-4bef-adc0-6d84b2a81015",
+		"name": "SwaggerFakeRestAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22695958"
+	},
+	"item": [
+		{
+			"name": "GetFakeUsers",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "text/plain; v=1.0"
+					}
+				],
+				"url": {
+					"raw": "https://fakerestapi.azurewebsites.net/api/v1/Activities",
+					"protocol": "https",
+					"host": [
+						"fakerestapi",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"api",
+						"v1",
+						"Activities"
+					]
+				},
+				"description": "Generated from cURL: curl -X GET \"https://fakerestapi.azurewebsites.net/api/v1/Activities\" -H  \"accept: text/plain; v=1.0\"\r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "https://fakerestapi.azurewebsites.net/api/v1/Activities",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "text/plain; v=1.0"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json; v=1.0"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"id\":0,\"title\":\"string\",\"dueDate\":\"2025-12-04T06:09:35.737Z\",\"completed\":true}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://fakerestapi.azurewebsites.net/api/v1/Activities",
+					"protocol": "https",
+					"host": [
+						"fakerestapi",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"api",
+						"v1",
+						"Activities"
+					]
+				},
+				"description": "Generated from cURL: curl -X POST \"https://fakerestapi.azurewebsites.net/api/v1/Activities\" -H  \"accept: text/plain; v=1.0\" -H  \"Content-Type: application/json; v=1.0\" -d \"{\\\"id\\\":0,\\\"title\\\":\\\"string\\\",\\\"dueDate\\\":\\\"2025-12-04T06:09:35.737Z\\\",\\\"completed\\\":true}\""
+			},
+			"response": []
+		},
+		{
+			"name": "oAuth practice",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "text/plain; v=1.0"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json; v=1.0"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"id\":0,\"title\":\"string\",\"dueDate\":\"2025-12-04T06:09:35.737Z\",\"completed\":true}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://github.com/login/oauth/authorize?client_id=Ov23liXpjibgg2sNL2mB",
+					"protocol": "https",
+					"host": [
+						"github",
+						"com"
+					],
+					"path": [
+						"login",
+						"oauth",
+						"authorize"
+					],
+					"query": [
+						{
+							"key": "client_id",
+							"value": "Ov23liXpjibgg2sNL2mB"
+						}
+					]
+				},
+				"description": "Generated from cURL: curl -X POST \"https://fakerestapi.azurewebsites.net/api/v1/Activities\" -H  \"accept: text/plain; v=1.0\" -H  \"Content-Type: application/json; v=1.0\" -d \"{\\\"id\\\":0,\\\"title\\\":\\\"string\\\",\\\"dueDate\\\":\\\"2025-12-04T06:09:35.737Z\\\",\\\"completed\\\":true}\""
+			},
+			"response": []
+		}
+	]
+}

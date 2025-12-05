@@ -1,0 +1,136 @@
+{
+	"info": {
+		"_postman_id": "35f13bb1-f6bc-420d-84f8-5a79f0c691b5",
+		"name": "collecton1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22695958"
+	},
+	"item": [
+		{
+			"name": "myfolder",
+			"item": [
+				{
+					"name": "GetRequest",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"console.log('pre-requisite script at api level');\r",
+									"pm.variables.set('userid_local', '2')\r",
+									"\r",
+									"pm.globals.set('global_userid', \"2\");\r",
+									"\r",
+									"pm.collectionVariables.set('collect_userid', '2')\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log('test script at api level');\r",
+									"\r",
+									"console.console(pm.globals.get('global_userid'))\r",
+									"console.console(pm.collectionVariables.get('collect_userid'))\r",
+									"console.console(pm.variables.get('userid_local'))"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{qa_env_url}/api/users?page=2",
+							"host": [
+								"{{qa_env_url}"
+							],
+							"path": [
+								"api",
+								"users"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {},
+						"exec": [
+							"console.log('pre-requisite script at folder level');"
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {},
+						"exec": [
+							"console.log('test script at folder level');"
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					"console.log('pre-requisite script at collection level');"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					"console.log('test script at collection level');"
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "collect_url",
+			"value": "https://reqres.in",
+			"type": "string"
+		}
+	]
+}
